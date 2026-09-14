@@ -13,24 +13,24 @@ export function Footer() {
       {/* Full-width divider */}
       <div className="w-full h-px bg-p-grey mb-16 lg:mb-20" />
 
-      <div className="max-w-[1444px] mx-auto relative bg-p-main rounded-[32px] overflow-hidden min-h-[500px] sm:min-h-[600px] lg:min-h-[731px] flex flex-col justify-between p-8 sm:p-12 lg:p-16">
+      <div className="max-w-[1444px] mx-auto relative bg-p-main rounded-[24px] sm:rounded-[32px] overflow-hidden min-h-[440px] sm:min-h-[600px] lg:min-h-[731px] flex flex-col justify-between p-6 sm:p-12 lg:p-16">
         {/* Corner circles */}
-        <div className="absolute top-[30px] left-[30px] w-[30px] h-[30px] rounded-full bg-white" />
-        <div className="absolute top-[30px] right-[30px] w-[30px] h-[30px] rounded-full bg-p-red" />
-        <div className="absolute bottom-[30px] left-[30px] w-[30px] h-[30px] rounded-full bg-white" />
-        <div className="absolute bottom-[30px] right-[30px] w-[30px] h-[30px] rounded-full bg-white" />
+        <div className="absolute top-[16px] left-[16px] sm:top-[30px] sm:left-[30px] w-5 h-5 sm:w-[30px] sm:h-[30px] rounded-full bg-white" />
+        <div className="absolute top-[16px] right-[16px] sm:top-[30px] sm:right-[30px] w-5 h-5 sm:w-[30px] sm:h-[30px] rounded-full bg-p-red" />
+        <div className="absolute bottom-[16px] left-[16px] sm:bottom-[30px] sm:left-[30px] w-5 h-5 sm:w-[30px] sm:h-[30px] rounded-full bg-white" />
+        <div className="absolute bottom-[16px] right-[16px] sm:bottom-[30px] sm:right-[30px] w-5 h-5 sm:w-[30px] sm:h-[30px] rounded-full bg-white" />
 
         {/* Inner corner marks */}
-        <svg className="absolute top-[35px] left-[35px] w-5 h-5" viewBox="0 0 20 20" fill="none">
+        <svg className="absolute top-[20px] left-[20px] sm:top-[35px] sm:left-[35px] w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 20 20" fill="none">
           <path d="M0 10H20M10 0V20" stroke="white" strokeWidth="1" opacity="0.3" />
         </svg>
-        <svg className="absolute top-[35px] right-[35px] w-5 h-5" viewBox="0 0 20 20" fill="none">
+        <svg className="absolute top-[20px] right-[20px] sm:top-[35px] sm:right-[35px] w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 20 20" fill="none">
           <path d="M0 10H20M10 0V20" stroke="white" strokeWidth="1" opacity="0.3" />
         </svg>
-        <svg className="absolute bottom-[35px] left-[35px] w-5 h-5" viewBox="0 0 20 20" fill="none">
+        <svg className="absolute bottom-[20px] left-[20px] sm:bottom-[35px] sm:left-[35px] w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 20 20" fill="none">
           <path d="M0 10H20M10 0V20" stroke="white" strokeWidth="1" opacity="0.3" />
         </svg>
-        <svg className="absolute bottom-[35px] right-[35px] w-5 h-5" viewBox="0 0 20 20" fill="none">
+        <svg className="absolute bottom-[20px] right-[20px] sm:bottom-[35px] sm:right-[35px] w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 20 20" fill="none">
           <path d="M0 10H20M10 0V20" stroke="white" strokeWidth="1" opacity="0.3" />
         </svg>
 

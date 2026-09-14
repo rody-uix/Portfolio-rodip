@@ -47,12 +47,12 @@ export function AboutToolsStack() {
       </div>
 
       {/* Header Container: TOOLS ──── STACK */}
-      <div className="relative z-10 max-w-[850px] mx-auto flex items-center justify-between gap-3 sm:gap-4 px-2">
-        <h2 className="font-moderniz text-[22px] sm:text-[28px] md:text-[32px] font-black text-p-main tracking-tight uppercase shrink-0">
+      <div className="relative z-10 max-w-[850px] mx-auto flex items-center justify-between gap-2 sm:gap-4 px-2">
+        <h2 className="font-moderniz text-[14px] xs:text-[18px] sm:text-[28px] md:text-[32px] font-black text-p-main tracking-tight uppercase shrink-0">
           TOOLS
         </h2>
-        <div className="h-px bg-p-grey flex-1 min-w-[30px] sm:min-w-[60px] mx-2 sm:mx-4" />
-        <h2 className="font-moderniz text-[22px] sm:text-[28px] md:text-[32px] font-black text-p-main tracking-tight uppercase shrink-0">
+        <div className="h-px bg-p-grey flex-1 min-w-[20px] sm:min-w-[60px] mx-2 sm:mx-4" />
+        <h2 className="font-moderniz text-[14px] xs:text-[18px] sm:text-[28px] md:text-[32px] font-black text-p-main tracking-tight uppercase shrink-0">
           STACK
         </h2>
       </div>

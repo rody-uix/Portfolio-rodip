@@ -1,3 +1,5 @@
+import { CtaButton } from "@/components/ui/cta-button";
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -14,13 +16,13 @@ export function Hero() {
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center pt-[80px] lg:pt-[120px] pb-[100px] lg:pb-[200px] px-4">
         {/* Name */}
-        <div className="flex items-center justify-center gap-2 md:gap-4 lg:gap-8 flex-wrap">
-          <span className="font-highcrest text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-4 lg:gap-8 flex-wrap">
+          <span className="font-highcrest text-[48px] xs:text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main">
             rodip
           </span>
 
           {/* Red ink splatter mark */}
-          <div className="relative w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] shrink-0">
+          <div className="relative w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] shrink-0">
             <svg
               viewBox="0 0 120 120"
               fill="none"
@@ -39,7 +41,7 @@ export function Hero() {
             </svg>
           </div>
 
-          <span className="font-highcrest text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main">
+          <span className="font-highcrest text-[48px] xs:text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main">
             Chettri
           </span>
         </div>
@@ -54,8 +56,10 @@ export function Hero() {
         </p>
 
         {/* CTA Button */}
-        <button className="mt-10 lg:mt-12 flex items-center gap-2 px-4 py-2 border border-p-grey bg-[#B0D8FF1A] font-moderniz text-[14px] uppercase tracking-wider text-p-text hover:bg-[#B0D8FF33] transition-colors cursor-pointer">
-          Summon the Compendium
+        <CtaButton
+          label="Summon the Compendium"
+          className="mt-10 lg:mt-12 flex items-center gap-2 px-4 py-2 border border-p-grey bg-[#B0D8FF1A] font-moderniz text-[14px] uppercase tracking-wider text-p-text hover:bg-[#B0D8FF33] transition-colors cursor-pointer"
+        >
           <svg
             width="12"
             height="12"
@@ -71,7 +75,7 @@ export function Hero() {
               strokeLinejoin="round"
             />
           </svg>
-        </button>
+        </CtaButton>
       </div>
 
       {/* Bottom gradient fade overlay */}

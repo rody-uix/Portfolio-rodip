@@ -59,14 +59,10 @@ export function TurningThought() {
           <DiamondCorner position="bottom-right" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service, i) => (
+            {services.map((service) => (
               <div
                 key={service.title}
-                className="relative border-t border-r border-p-grey bg-white"
-                style={{
-                  borderBottom: i >= 3 ? "1px solid #DCDCDC" : undefined,
-                  borderLeft: i % 3 === 0 ? "1px solid #DCDCDC" : undefined,
-                }}
+                className="relative border border-p-grey -mt-px -ml-px bg-white"
               >
                 <div className="relative min-h-[266px] h-auto p-6 flex flex-col justify-between">
                   {/* Icon area */}

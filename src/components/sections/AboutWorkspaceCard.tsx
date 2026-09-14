@@ -12,7 +12,7 @@ export function AboutWorkspaceCard() {
         </span>
 
         {/* Centered White Frame Card (579px x 658px) */}
-        <div className="relative w-[340px] sm:w-[480px] md:w-[579px] h-auto min-h-[520px] md:h-[658px] border border-p-grey bg-white p-6 md:p-10 flex flex-col items-center justify-between mx-auto shadow-xs">
+        <div className="relative w-full max-w-[340px] sm:max-w-[480px] md:max-w-[579px] h-auto min-h-[520px] md:h-[658px] border border-p-grey bg-white p-6 md:p-10 flex flex-col items-center justify-between mx-auto shadow-xs">
           {/* Diamond Corner Accents (45 deg angle) */}
           <DiamondCorner position="top-left" />
           <DiamondCorner position="top-right" />

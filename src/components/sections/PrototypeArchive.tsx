@@ -1,5 +1,6 @@
 import { SectionHeader } from "@/components/ui/section-header";
 import { DiamondCorner } from "@/components/ui/diamond-corner";
+import { CtaButton } from "@/components/ui/cta-button";
 
 const archiveCards = [
   { id: 1 },
@@ -47,11 +48,11 @@ export function PrototypeArchive() {
 
                   {/* View Work button */}
                   <div className="flex justify-center py-6">
-                    <a
+                    <CtaButton
+                      label="View Work"
                       href="#"
                       className="flex items-center gap-2 h-[37px] px-4 border border-p-text bg-white font-moderniz text-[13px] font-medium tracking-[0.025em] uppercase text-p-text hover:bg-neutral-50 transition-colors"
                     >
-                      View Work
                       <svg
                         width="20"
                         height="20"
@@ -67,7 +68,7 @@ export function PrototypeArchive() {
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </a>
+                    </CtaButton>
                   </div>
                 </div>
               ))}

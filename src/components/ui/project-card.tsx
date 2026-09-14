@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { DiamondCorner } from "@/components/ui/diamond-corner";
+import { CtaButton } from "@/components/ui/cta-button";
 
 interface ProjectCardProps {
   title: string;
@@ -21,7 +22,7 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "relative w-full bg-white border border-p-grey my-2",
+        "relative w-full bg-white border border-p-grey shadow-md",
         className
       )}
     >
@@ -64,18 +65,17 @@ export function ProjectCard({
                 </svg>
               </div>
 
-              <a
+              <CtaButton
+                label="Visit Website"
                 href={visitUrl}
                 className="h-[37px] px-4 flex items-center bg-p-main border border-p-text font-moderniz text-[12px] sm:text-[13px] font-medium tracking-[0.025em] uppercase text-p-grey hover:bg-p-main/90 transition-colors whitespace-nowrap"
-              >
-                Visit Website
-              </a>
+              />
 
-              <a
+              <CtaButton
+                label="View Work"
                 href={viewUrl}
                 className="h-[37px] px-3 sm:px-4 flex items-center gap-2 bg-white border border-p-text font-moderniz text-[12px] sm:text-[13px] font-medium tracking-[0.025em] uppercase text-p-text hover:bg-neutral-50 transition-colors whitespace-nowrap"
               >
-                View Work
                 <svg
                   width="18"
                   height="18"
@@ -91,7 +91,7 @@ export function ProjectCard({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </CtaButton>
             </div>
 
             <span className="font-moderniz text-[20px] lg:text-[22px] leading-[28.6px] text-p-grey">

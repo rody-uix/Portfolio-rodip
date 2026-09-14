@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     "A product designer crafting thoughtful digital experiences through strategy, research, and visual precision.",
 };
 
+import { CustomCursor } from "@/components/ui/custom-cursor";
+
 export default function RootLayout({
   children,
 }: {
@@ -42,7 +44,10 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${syne.variable} ${orbitron.variable} ${alexBrush.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-p-bg">{children}</body>
+      <body className="min-h-full flex flex-col bg-p-bg">
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

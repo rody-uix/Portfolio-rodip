@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ScrambleText } from "@/components/ui/scramble-text";
 
 export function AboutQuoteFooter() {
   const [copied, setCopied] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const email = "hireridipuix@gmail.com";
 
   const handleCopy = () => {
@@ -42,12 +44,16 @@ export function AboutQuoteFooter() {
         <div className="mt-8 sm:mt-[38px] flex justify-center">
           <button
             onClick={handleCopy}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             className="group relative inline-flex items-center flex-wrap justify-center gap-2 sm:gap-3 px-4 py-2 sm:py-2.5 border border-p-grey bg-[#B0D8FF1A] hover:bg-[#B0D8FF33] transition-all cursor-pointer shadow-2xs max-w-full"
             title="Click to copy email"
           >
-            <span className="font-adventor text-[14px] sm:text-[16px] leading-[25.6px] text-p-main font-medium whitespace-nowrap">
-              Ink Your Intentions
-            </span>
+            <ScrambleText
+              text="Ink Your Intentions"
+              isHovered={isHovered}
+              className="font-adventor text-[14px] sm:text-[16px] leading-[25.6px] text-p-main font-medium whitespace-nowrap"
+            />
             <span className="text-p-grey font-sans hidden sm:inline">|</span>
             <span className="font-adventor text-[14px] sm:text-[16px] leading-[25.6px] text-p-text group-hover:underline whitespace-nowrap">
               {email}
