@@ -7,9 +7,28 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+
+  /* Portfolio font families from first-screen.md */
+  --font-dm-sans: "DM Sans", var(--font-dm-sans), sans-serif;
+  --font-highcrest: "Highcrest - Personal use", "Highcrest", var(--font-alex-brush), cursive;
+  --font-adventor: "TeX Gyre Adventor", "Avant Garde", "Century Gothic", var(--font-syne), sans-serif;
+  --font-moderniz: "MODERNIZ", "Orbitron", var(--font-orbitron), sans-serif;
+
+  /* Theme aliases */
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-moderniz);
+  --font-script: var(--font-highcrest);
+  --font-body: var(--font-adventor);
+
+  /* Portfolio colors */
+  --color-p-main: #252525;
+  --color-p-text: #515151;
+  --color-p-grey: #DCDCDC;
+  --color-p-bg: #FFFAFA;
+  --color-p-red: #FF0004;
+  --color-p-green: #00FF04;
+
+  /* shadcn tokens */
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,8 +68,8 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: #FFFAFA;
+  --foreground: #252525;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -126,5 +145,20 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .font-dm-sans {
+    font-family: "DM Sans", var(--font-dm-sans), sans-serif;
+  }
+  .font-highcrest {
+    font-family: "Highcrest - Personal use", "Highcrest", var(--font-alex-brush), cursive;
+  }
+  .font-adventor {
+    font-family: "TeX Gyre Adventor", "Avant Garde", "Century Gothic", var(--font-syne), sans-serif;
+  }
+  .font-moderniz {
+    font-family: "MODERNIZ", "Orbitron", var(--font-orbitron), sans-serif;
   }
 }
