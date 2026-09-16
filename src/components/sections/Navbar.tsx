@@ -11,7 +11,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/#work" },
   { label: "Lab", href: "/#lab" },
-  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
 ];
 
@@ -60,6 +60,8 @@ export function Navbar() {
                 ? pathname === "/"
                 : item.href === "/about"
                 ? pathname === "/about"
+                : item.href === "/case-studies"
+                ? pathname === "/case-studies"
                 : false;
 
             return (
