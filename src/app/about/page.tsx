@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/Navbar";
 import { AboutHero } from "@/components/sections/AboutHero";
+import { AboutWorkspaceCard } from "@/components/sections/AboutWorkspaceCard";
 import { AboutToolsStack } from "@/components/sections/AboutToolsStack";
 import { AboutQuoteFooter } from "@/components/sections/AboutQuoteFooter";
 
@@ -14,6 +15,7 @@ export default function AboutPage() {
     <main className="bg-p-bg min-h-screen overflow-x-hidden relative">
       <Navbar />
       <AboutHero />
+      <AboutWorkspaceCard />
       <AboutToolsStack />
       <AboutQuoteFooter />
     </main>

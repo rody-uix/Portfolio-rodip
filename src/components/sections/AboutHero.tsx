@@ -18,9 +18,10 @@ export function AboutHero() {
       {/* Vintage Stamp Group Collage (Right - Specs from second-screen.md: 629px x 717.1px) */}
       <div className="absolute right-[20px] xl:right-[40px] 2xl:right-[60px] top-[60px] 2xl:top-[90px] w-[360px] xl:w-[480px] 2xl:w-[629px] aspect-[629/717.1] pointer-events-none opacity-95 hidden xl:block z-10">
         <div className="relative w-full h-full">
-          {/* Stamp 1 - image 4.svg (207.5px x 293px @ top: 0px, left: 0px) */}
+          {/* Top Row: Gemini, image 8, image 6 */}
+          {/* Stamp 1 - Gemini Image (Top Left) */}
           <div
-            className="absolute"
+            className="absolute overflow-hidden rounded-xs"
             style={{
               left: "0%",
               top: "0%",
@@ -28,10 +29,16 @@ export function AboutHero() {
               height: "40.86%",
             }}
           >
-            <Image src="/image 4.svg" alt="Vintage Stamp 1" fill className="object-contain" priority />
+            <Image
+              src="/Gemini_Generated_Image_c1hyu3c1hyu3c1hy 1.jpg"
+              alt="Vintage Stamp 1 (Gemini)"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
-          {/* Stamp 2 - image 5.svg (119.8px x 173.4px @ top: 117.8px, left: 220.9px) */}
+          {/* Stamp 2 - image 8.svg (Top Middle) */}
           <div
             className="absolute"
             style={{
@@ -41,10 +48,10 @@ export function AboutHero() {
               height: "24.18%",
             }}
           >
-            <Image src="/image 5.svg" alt="Vintage Stamp 2" fill className="object-contain" />
+            <Image src="/image 8.svg" alt="Vintage Stamp 2 (Image 8)" fill className="object-contain" />
           </div>
 
-          {/* Stamp 3 - image 6.svg (260.1px x 260.1px @ top: 37.3px, left: 328.6px) */}
+          {/* Stamp 3 - image 6.svg (Top Right) */}
           <div
             className="absolute"
             style={{
@@ -54,10 +61,11 @@ export function AboutHero() {
               height: "36.27%",
             }}
           >
-            <Image src="/image 6.svg" alt="Vintage Stamp 3" fill className="object-contain" />
+            <Image src="/image 6.svg" alt="Vintage Stamp 3 (Image 6)" fill className="object-contain" />
           </div>
 
-          {/* Stamp 4 - image 7.svg (216.7px x 216.7px @ top: 293px, left: 38px) */}
+          {/* Second Row: image 4, image 9, image 7 */}
+          {/* Stamp 4 - image 4.svg (Second Row Left) */}
           <div
             className="absolute"
             style={{
@@ -67,10 +75,10 @@ export function AboutHero() {
               height: "30.22%",
             }}
           >
-            <Image src="/image 7.svg" alt="Vintage Stamp 4" fill className="object-contain" />
+            <Image src="/image 4.svg" alt="Vintage Stamp 4 (Image 4)" fill className="object-contain" />
           </div>
 
-          {/* Stamp 5 - image 8.svg (178.8px x 260.1px @ top: 297.4px, left: 220.2px) */}
+          {/* Stamp 5 - image 9.svg (Second Row Center) */}
           <div
             className="absolute"
             style={{
@@ -80,10 +88,10 @@ export function AboutHero() {
               height: "36.27%",
             }}
           >
-            <Image src="/image 8.svg" alt="Vintage Stamp 5" fill className="object-contain" />
+            <Image src="/image 9.svg" alt="Vintage Stamp 5 (Image 9)" fill className="object-contain" />
           </div>
 
-          {/* Stamp 6 - image 9.svg (216.7px x 216.7px @ top: 277.4px, left: 379.7px) */}
+          {/* Stamp 6 - image 7.svg (Second Row Right) */}
           <div
             className="absolute"
             style={{
@@ -93,12 +101,13 @@ export function AboutHero() {
               height: "30.22%",
             }}
           >
-            <Image src="/image 9.svg" alt="Vintage Stamp 6" fill className="object-contain" />
+            <Image src="/image 7.svg" alt="Vintage Stamp 6 (Image 7)" fill className="object-contain" />
           </div>
 
-          {/* Stamp 7 - Gemini_Generated_Image_c1hyu3c1hyu3c1hy 1.jpg (240.4px x 242px @ top: 475px, left: 388.6px) */}
+          {/* Bottom Single Image: image 5 */}
+          {/* Stamp 7 - image 5.svg (Bottom Single Image) */}
           <div
-            className="absolute overflow-hidden rounded-xs"
+            className="absolute"
             style={{
               left: "61.78%",
               top: "66.25%",
@@ -106,12 +115,7 @@ export function AboutHero() {
               height: "33.75%",
             }}
           >
-            <Image
-              src="/Gemini_Generated_Image_c1hyu3c1hyu3c1hy 1.jpg"
-              alt="Vintage Stamp 7"
-              fill
-              className="object-cover"
-            />
+            <Image src="/image 5.svg" alt="Vintage Stamp 7 (Image 5)" fill className="object-contain" />
           </div>
         </div>
       </div>

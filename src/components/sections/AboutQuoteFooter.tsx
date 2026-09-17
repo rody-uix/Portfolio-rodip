@@ -16,20 +16,21 @@ export function AboutQuoteFooter() {
   };
 
   return (
-    <section className="relative max-w-[1920px] mx-auto pt-16 sm:pt-24 md:pt-36 pb-36 sm:pb-48 px-4 sm:px-6 overflow-hidden">
-      {/* Ancient Greek Columns / Pillars Illustration (Bottom Right - Visible on wide screens) */}
-      <div className="absolute right-[20px] xl:right-[80px] 2xl:right-[120px] bottom-[40px] sm:bottom-[60px] w-[240px] sm:w-[320px] xl:w-[426px] pointer-events-none opacity-100 z-10 hidden xl:block">
+    <section className="relative max-w-[1920px] mx-auto min-h-[600px] pt-16 sm:pt-24 md:pt-28 pb-28 sm:pb-36 px-4 sm:px-6 overflow-hidden flex flex-col justify-center">
+      {/* Ancient Greek Columns / Pillars Illustration (Bottom Right - 500px height, sticky right) */}
+      <div className="absolute right-0 bottom-0 w-[267px] h-[500px] pointer-events-none opacity-100 z-10 hidden xl:block">
         <Image
           src="/last pillers.svg"
           alt="Ancient Greek Columns Illustration"
-          width={427}
-          height={800}
-          className="object-contain w-full h-auto"
+          width={267}
+          height={500}
+          className="object-contain object-bottom w-full h-full"
+          priority
         />
       </div>
 
-      {/* Main Center Content Column */}
-      <div className="relative z-20 text-center max-w-[1067px] mx-auto px-2">
+      {/* Main Center Content Column (Positioned with z-30 to stay above pillars) */}
+      <div className="relative z-30 text-center max-w-[1067px] mx-auto px-2">
         {/* Gothic Calligraphic Quote */}
         <h2 className="font-highcrest text-[28px] sm:text-[36px] md:text-[40px] leading-[38px] sm:leading-[46px] text-p-main tracking-tight max-w-[751px] mx-auto">
           not every idea is meant to become a product.
@@ -67,7 +68,7 @@ export function AboutQuoteFooter() {
         </div>
       </div>
 
-      {/* Bottom Perspective Floor Grid Background */}
+      {/* Bottom Perspective Floor Grid Background with Top Fade Effect */}
       <div
         className="absolute bottom-0 left-[-50%] right-[-50%] h-[280px] sm:h-[320px] pointer-events-none opacity-40 z-0 border-t border-[#B3B3B399]"
         style={{
@@ -75,9 +76,14 @@ export function AboutQuoteFooter() {
           backgroundSize: "60px 24px",
           transform: "perspective(500px) rotateX(55deg)",
           transformOrigin: "bottom center",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 45%, black 100%)",
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 45%, black 100%)",
         }}
         aria-hidden="true"
       />
+      
+      {/* Top Fade Gradient Overlay on Grid */}
+      <div className="absolute bottom-0 left-0 right-0 h-[280px] sm:h-[320px] bg-gradient-to-b from-p-bg via-transparent to-transparent pointer-events-none z-0" />
     </section>
   );
 }
