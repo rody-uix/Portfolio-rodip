@@ -18,7 +18,7 @@ export function AboutQuoteFooter() {
   return (
     <section className="relative max-w-[1920px] mx-auto pt-16 sm:pt-24 md:pt-36 pb-36 sm:pb-48 px-4 sm:px-6 overflow-hidden">
       {/* Ancient Greek Columns / Pillars Illustration (Bottom Right - Visible on wide screens) */}
-      <div className="absolute right-[20px] xl:right-[80px] 2xl:right-[120px] bottom-[40px] sm:bottom-[60px] w-[240px] sm:w-[320px] xl:w-[426px] pointer-events-none opacity-90 z-10 hidden xl:block">
+      <div className="absolute right-[20px] xl:right-[80px] 2xl:right-[120px] bottom-[40px] sm:bottom-[60px] w-[240px] sm:w-[320px] xl:w-[426px] pointer-events-none opacity-100 z-10 hidden xl:block">
         <Image
           src="/last pillers.svg"
           alt="Ancient Greek Columns Illustration"

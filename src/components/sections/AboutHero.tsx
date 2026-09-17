@@ -3,8 +3,8 @@ import Image from "next/image";
 export function AboutHero() {
   return (
     <section className="relative max-w-[1920px] mx-auto pt-16 sm:pt-[100px] pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 overflow-hidden">
-      {/* Statue Bust Line Art Illustration (Left - Visible on wide screens) */}
-      <div className="absolute left-[20px] 2xl:left-[60px] top-[180px] 2xl:top-[224px] w-[150px] 2xl:w-[192px] pointer-events-none opacity-90 hidden 2xl:block z-10">
+      {/* Statue Bust Line Art Illustration (Left - Visible on desktop screens) */}
+      <div className="absolute left-[20px] xl:left-[40px] 2xl:left-[60px] top-[180px] 2xl:top-[224px] w-[140px] xl:w-[160px] 2xl:w-[192px] pointer-events-none opacity-90 hidden xl:block z-10">
         <Image
           src="/Head (rasterized).svg"
           alt="Statue Head Illustration"
@@ -15,20 +15,109 @@ export function AboutHero() {
         />
       </div>
 
-      {/* Vintage Stamp Group Collage (Right - Visible on wide screens) */}
-      <div className="absolute right-[20px] 2xl:right-[80px] top-[100px] 2xl:top-[138px] w-[450px] 2xl:w-[629px] pointer-events-none opacity-95 hidden 2xl:block z-10">
-        <Image
-          src="/imagesgroup.svg"
-          alt="Vintage Stamps Collage"
-          width={629}
-          height={717}
-          className="object-contain w-full h-auto"
-          priority
-        />
+      {/* Vintage Stamp Group Collage (Right - Specs from second-screen.md: 629px x 717.1px) */}
+      <div className="absolute right-[20px] xl:right-[40px] 2xl:right-[60px] top-[60px] 2xl:top-[90px] w-[360px] xl:w-[480px] 2xl:w-[629px] aspect-[629/717.1] pointer-events-none opacity-95 hidden xl:block z-10">
+        <div className="relative w-full h-full">
+          {/* Stamp 1 - image 4.svg (207.5px x 293px @ top: 0px, left: 0px) */}
+          <div
+            className="absolute"
+            style={{
+              left: "0%",
+              top: "0%",
+              width: "33.0%",
+              height: "40.86%",
+            }}
+          >
+            <Image src="/image 4.svg" alt="Vintage Stamp 1" fill className="object-contain" priority />
+          </div>
+
+          {/* Stamp 2 - image 5.svg (119.8px x 173.4px @ top: 117.8px, left: 220.9px) */}
+          <div
+            className="absolute"
+            style={{
+              left: "35.13%",
+              top: "16.42%",
+              width: "19.05%",
+              height: "24.18%",
+            }}
+          >
+            <Image src="/image 5.svg" alt="Vintage Stamp 2" fill className="object-contain" />
+          </div>
+
+          {/* Stamp 3 - image 6.svg (260.1px x 260.1px @ top: 37.3px, left: 328.6px) */}
+          <div
+            className="absolute"
+            style={{
+              left: "52.24%",
+              top: "5.20%",
+              width: "41.35%",
+              height: "36.27%",
+            }}
+          >
+            <Image src="/image 6.svg" alt="Vintage Stamp 3" fill className="object-contain" />
+          </div>
+
+          {/* Stamp 4 - image 7.svg (216.7px x 216.7px @ top: 293px, left: 38px) */}
+          <div
+            className="absolute"
+            style={{
+              left: "6.04%",
+              top: "40.86%",
+              width: "34.46%",
+              height: "30.22%",
+            }}
+          >
+            <Image src="/image 7.svg" alt="Vintage Stamp 4" fill className="object-contain" />
+          </div>
+
+          {/* Stamp 5 - image 8.svg (178.8px x 260.1px @ top: 297.4px, left: 220.2px) */}
+          <div
+            className="absolute"
+            style={{
+              left: "35.01%",
+              top: "41.47%",
+              width: "28.42%",
+              height: "36.27%",
+            }}
+          >
+            <Image src="/image 8.svg" alt="Vintage Stamp 5" fill className="object-contain" />
+          </div>
+
+          {/* Stamp 6 - image 9.svg (216.7px x 216.7px @ top: 277.4px, left: 379.7px) */}
+          <div
+            className="absolute"
+            style={{
+              left: "60.37%",
+              top: "38.69%",
+              width: "34.46%",
+              height: "30.22%",
+            }}
+          >
+            <Image src="/image 9.svg" alt="Vintage Stamp 6" fill className="object-contain" />
+          </div>
+
+          {/* Stamp 7 - Gemini_Generated_Image_c1hyu3c1hyu3c1hy 1.jpg (240.4px x 242px @ top: 475px, left: 388.6px) */}
+          <div
+            className="absolute overflow-hidden rounded-xs"
+            style={{
+              left: "61.78%",
+              top: "66.25%",
+              width: "38.21%",
+              height: "33.75%",
+            }}
+          >
+            <Image
+              src="/Gemini_Generated_Image_c1hyu3c1hyu3c1hy 1.jpg"
+              alt="Vintage Stamp 7"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Main Content Column */}
-      <div className="max-w-[763px] mx-auto 2xl:ml-[300px] relative z-20">
+      <div className="max-w-[763px] mx-auto xl:ml-[240px] 2xl:ml-[300px] relative z-20">
         {/* Title Heading */}
         <h1 className="font-dm-sans text-[36px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-semibold leading-[1.08] lg:leading-[75.6px] tracking-[-0.015em] text-p-main max-w-[683px]">
           Designing products, building startups, and learning in public.

@@ -95,7 +95,7 @@ letter-spacing: 0%;
 
 background: var(--text, #515151);
 
-#
+# right side image section 
 
 width: 629;
 

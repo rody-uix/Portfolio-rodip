@@ -10,7 +10,7 @@ const archiveCards = [
 
 export function PrototypeArchive() {
   return (
-    <section className="py-16 lg:py-20">
+    <section className="pt-0 pb-16 lg:pb-20">
       {/* Full-width divider */}
       <div className="w-full h-px bg-p-grey mb-16 lg:mb-20" />
 

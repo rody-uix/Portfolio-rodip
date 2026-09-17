@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/section-header";
 import { ProjectCard } from "@/components/ui/project-card";
@@ -44,12 +45,16 @@ const projects = [
 
 export function RecentProjects() {
   return (
-    <section className="relative max-w-[1920px] mx-auto pt-16 lg:pt-20 pb-32 px-4 xl:px-12">
+    <section className="relative max-w-[1920px] mx-auto px-4 xl:px-12">
+      {/* 2 Full-Height Vertical Lines connecting Upper & Lower Horizontal Lines */}
+      <div className="hidden xl:block absolute top-0 bottom-0 left-[268px] w-px bg-p-grey/60 pointer-events-none z-10" />
+      <div className="hidden xl:block absolute top-0 bottom-0 right-[286px] w-px bg-p-grey/60 pointer-events-none z-10" />
+
       {/* 3-Column Container: Sticky Left Sidebar | Stacking Cards Center Column | Sticky Right Sidebar */}
       <div className="flex items-start justify-between gap-8 lg:gap-12 relative">
         {/* Left Sticky Sidebar (Constrained to section) */}
         <aside className="hidden xl:block w-[220px] shrink-0 sticky top-24 self-start z-30">
-          <div className="pr-6 border-r border-p-grey/60">
+          <div className="pr-6 pt-16 lg:pt-20 pb-16 lg:pb-24">
             {/* Available status */}
             <div className="flex items-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-p-green shrink-0 animate-pulse" />
@@ -59,8 +64,14 @@ export function RecentProjects() {
             </div>
 
             {/* Profile photo */}
-            <div className="relative w-[179px] h-[179px] bg-neutral-200 border border-neutral-300 mb-4 overflow-hidden rounded-xs">
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-200" />
+            <div className="relative w-[179px] h-[179px] border border-neutral-300 mb-4 overflow-hidden rounded-xs bg-[#2E42B0] shadow-xs">
+              <Image
+                src="/ascii-magic-1-Photoroom 1.svg"
+                alt="Profile Statue"
+                width={179}
+                height={179}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Details */}
@@ -79,7 +90,7 @@ export function RecentProjects() {
         </aside>
 
         {/* Center Content Column with Vertical Stacking Project Cards */}
-        <div className="flex-1 max-w-[1000px] mx-auto">
+        <div className="flex-1 max-w-[1000px] mx-auto pt-16 lg:pt-20 pb-16 lg:pb-24">
           <SectionHeader leftTitle="Recent" rightTitle="Projects" />
 
           {/* Mobile Reflow Container (<1280px Viewports) - Side-by-side [ GROUP 1: PROFILE ] | [ GROUP 2: CAPABILITIES ] */}
@@ -96,8 +107,14 @@ export function RecentProjects() {
                 </div>
 
                 {/* Profile photo */}
-                <div className="relative w-[90px] h-[90px] sm:w-[150px] sm:h-[150px] bg-neutral-200 border border-neutral-300 overflow-hidden rounded-xs shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-200" />
+                <div className="relative w-[90px] h-[90px] sm:w-[150px] sm:h-[150px] border border-neutral-300 overflow-hidden rounded-xs shrink-0 bg-[#2E42B0]">
+                  <Image
+                    src="/ascii-magic-1-Photoroom 1.svg"
+                    alt="Profile Statue"
+                    width={150}
+                    height={150}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* Details */}
@@ -154,20 +171,16 @@ export function RecentProjects() {
                   title={project.title}
                   description={project.description}
                   year={project.year}
+                  viewUrl={`/case-studies/${i + 1}`}
                 />
               </div>
             ))}
-          </div>
-
-          {/* Mobile Decorative illustration box (<1280px Viewports) */}
-          <div className="block xl:hidden mt-12 w-[200px] sm:w-[238px] aspect-square opacity-40 bg-neutral-200 border border-neutral-300 rounded-lg flex items-center justify-center mx-auto">
-            <div className="w-full h-full bg-gradient-to-b from-neutral-300 to-transparent rounded-lg" />
           </div>
         </div>
 
         {/* Right Sticky Sidebar */}
         <aside className="hidden xl:block w-[238px] shrink-0 sticky top-24 self-start z-30">
-          <div className="pl-6 border-l border-p-grey/60">
+          <div className="pl-6 pt-16 lg:pt-20 pb-16 lg:pb-24">
             {/* Skills list */}
             <div className="space-y-1">
               {skills.map((skill) => (
@@ -182,9 +195,15 @@ export function RecentProjects() {
               ))}
             </div>
 
-            {/* Decorative illustration box */}
-            <div className="mt-20 w-full aspect-square opacity-40 bg-neutral-200 border border-neutral-300 rounded-lg flex items-center justify-center">
-              <div className="w-full h-full bg-gradient-to-b from-neutral-300 to-transparent rounded-lg" />
+            {/* God / Statue Illustration (Right Side - Edge to Edge from left border line to screen edge) */}
+            <div className="mt-12 -ml-6 -mr-4 xl:-mr-12 opacity-95 pointer-events-none overflow-hidden">
+              <Image
+                src="/god (rasterized).svg"
+                alt="God Statue Line Art"
+                width={300}
+                height={160}
+                className="w-full h-auto object-cover object-left"
+              />
             </div>
           </div>
         </aside>
