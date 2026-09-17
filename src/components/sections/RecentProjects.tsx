@@ -66,7 +66,7 @@ export function RecentProjects() {
             {/* Profile photo */}
             <div className="relative w-[179px] h-[179px] border border-neutral-300 mb-4 overflow-hidden rounded-xs bg-[#2E42B0] shadow-xs">
               <Image
-                src="/ascii-magic-1-Photoroom 1.svg"
+                src="/Heaven cannot brook two suns, nor earth two masters - Alexander The Great_ 1.svg"
                 alt="Profile Statue"
                 width={179}
                 height={179}
@@ -109,7 +109,7 @@ export function RecentProjects() {
                 {/* Profile photo */}
                 <div className="relative w-[90px] h-[90px] sm:w-[150px] sm:h-[150px] border border-neutral-300 overflow-hidden rounded-xs shrink-0 bg-[#2E42B0]">
                   <Image
-                    src="/ascii-magic-1-Photoroom 1.svg"
+                    src="/Heaven cannot brook two suns, nor earth two masters - Alexander The Great_ 1.svg"
                     alt="Profile Statue"
                     width={150}
                     height={150}

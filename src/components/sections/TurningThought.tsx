@@ -93,17 +93,6 @@ export function TurningThought() {
             ))}
           </div>
         </div>
-
-        {/* Right side illustration (Heaven cannot brook SVG) */}
-        <div className="hidden 2xl:block absolute -right-36 top-1/2 -translate-y-1/2 w-[280px] pointer-events-none opacity-95 z-20">
-          <Image
-            src="/Heaven cannot brook two suns, nor earth two masters - Alexander The Great_ 1.svg"
-            alt="Heaven Cannot Brook Illustration"
-            width={280}
-            height={350}
-            className="w-full h-auto object-contain"
-          />
-        </div>
       </div>
     </section>
   );
