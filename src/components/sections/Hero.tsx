@@ -1,27 +1,42 @@
- import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 
 export function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("hireridipuix@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section className="relative overflow-hidden">
-      {/* Perspective Grid Line Background (Group 18.svg) */}
-      <div className="absolute inset-0 pointer-events-none opacity-100 z-0">
-        <Image
-          src="/Group 18.svg"
-          alt="Perspective Grid Background"
-          fill
-          className="object-cover object-top"
-          priority
-        />
-      </div>
+      {/* Perspective Floor Grid Background (Matching AboutQuoteFooter.tsx style) */}
+      <div
+        className="absolute bottom-0 left-[-50%] right-[-50%] h-[420px] sm:h-[500px] pointer-events-none opacity-40 z-0 border-t border-[#B3B3B399]"
+        style={{
+          backgroundImage: `linear-gradient(to right, #B3B3B3 1px, transparent 1px), linear-gradient(to bottom, #B3B3B3 1px, transparent 1px)`,
+          backgroundSize: "60px 24px",
+          transform: "perspective(500px) rotateX(55deg)",
+          transformOrigin: "bottom center",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
+        }}
+        aria-hidden="true"
+      />
 
       {/* Hero Frame Overlay & Pillars (Frame 91 (rasterized).svg) */}
-      <div className="absolute inset-0 pointer-events-none opacity-100 z-10">
-        <Image
+      <div className="absolute inset-0 pointer-events-none opacity-100 z-[15]">
+        <img
           src="/Frame 91 (rasterized).svg"
-          alt="Hero Background Frame"
-          fill
-          className="object-cover object-center"
+          alt="Hero Pillars & Background Frame"
+          className="w-full h-full object-cover object-center pointer-events-none"
         />
       </div>
 
@@ -29,23 +44,24 @@ export function Hero() {
       <div className="relative z-20 flex flex-col items-center pt-[80px] lg:pt-[120px] pb-[80px] lg:pb-[140px] px-4">
         {/* Name */}
         <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-4 lg:gap-8 flex-wrap">
-          <span className="font-highcrest text-[48px] xs:text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main">
+          <span className="font-highcrest text-[48px] xs:text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main lowercase">
             rodip
           </span>
 
-          {/* Red ink splatter star mark */}
-          <div className="relative w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] shrink-0">
+          {/* Eye Illustration */}
+          <div className="relative w-[80px] h-[132px] xs:w-[110px] xs:h-[182px] sm:w-[150px] sm:h-[249px] md:w-[200px] md:h-[331px] lg:w-[261.28px] lg:h-[433.19px] shrink-0 opacity-100 rotate-0">
             <Image
               src="/eye.svg"
-              alt="Red Star Emblem"
-              width={80}
-              height={80}
+              alt="Eye Illustration"
+              width={261.28}
+              height={433.19}
               className="w-full h-full object-contain"
+              priority
             />
           </div>
 
-          <span className="font-highcrest text-[48px] xs:text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main">
-            Chettri
+          <span className="font-highcrest text-[48px] xs:text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main lowercase">
+            chettri
           </span>
         </div>
 
@@ -58,44 +74,38 @@ export function Hero() {
           storytelling.
         </p>
 
-        {/* Eye Illustration & Flourishes (eye.svg + Group 5 + divider.svg) */}
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-100 pointer-events-none">
-          <div className="w-[50px] sm:w-[65px] h-[50px] sm:h-[65px]">
+        {/* Group 5 (rasterized) with CTA Button overlaid on top */}
+        <div className="relative mt-6 lg:mt-10 flex justify-center items-center shrink-0">
+          <div className="relative w-[280px] xs:w-[320px] sm:w-[350px] md:w-[379px] h-[212px] xs:h-[242px] sm:h-[265px] md:h-[287.25px] shrink-0 opacity-100 rotate-0">
             <Image
               src="/Group 5 (rasterized).svg"
-              alt="Eye Emblem"
-              width={65}
-              height={65}
-              className="w-full h-full object-contain"
+              alt="Group 5 Illustration"
+              width={379}
+              height={287.25}
+              className="w-full h-full object-contain pointer-events-none"
+              priority
             />
+
+            {/* CTA Button positioned over Group 5 image */}
+            <div className="absolute top-[33.86%] left-1/2 -translate-x-1/2 z-10 w-[264px] max-w-[calc(100%-24px)]">
+              <CtaButton
+                label={copied ? "Copied to Clipboard!" : "Summon the Compendium"}
+                onClick={handleCopyEmail}
+                title="Copy email: hireridipuix@gmail.com"
+                className="cta-glass flex items-center justify-between gap-2 w-full h-[42px] px-4 py-2 font-adventor font-normal text-[16px] leading-[25.6px] tracking-normal text-[#515151] transition-all cursor-pointer opacity-100 rotate-0 shrink-0"
+              >
+                <Image
+                  src="/copy.svg"
+                  alt="Copy icon"
+                  width={12}
+                  height={12}
+                  className="w-[12px] h-[12px] shrink-0 opacity-100 rotate-0"
+                />
+              </CtaButton>
+            </div>
           </div>
         </div>
-
-        {/* CTA Button */}
-        <CtaButton
-          label="Summon the Compendium"
-          className="mt-8 lg:mt-10 flex items-center gap-2 px-4 py-2 border border-p-grey bg-[#B0D8FF1A] font-moderniz text-[14px] uppercase tracking-wider text-p-text hover:bg-[#B0D8FF33] transition-colors cursor-pointer"
-        >
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 6H10M10 6L7 3M10 6L7 9"
-              stroke="#515151"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </CtaButton>
       </div>
-
-      {/* Bottom gradient fade overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-[157px] bg-gradient-to-b from-p-bg to-transparent pointer-events-none z-0" />
 
       {/* Wider subtle border strip */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-[#B3B3B399]" />

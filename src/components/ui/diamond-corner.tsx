@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface DiamondCornerProps {
@@ -6,21 +7,29 @@ interface DiamondCornerProps {
 }
 
 const positionMap = {
-  "top-left": "-top-[8px] -left-[8px]",
-  "top-right": "-top-[8px] -right-[8px]",
-  "bottom-left": "-bottom-[8px] -left-[8px]",
-  "bottom-right": "-bottom-[8px] -right-[8px]",
+  "top-left": "-top-[9.5px] -left-[9.5px]",
+  "top-right": "-top-[9.5px] -right-[9.5px]",
+  "bottom-left": "-bottom-[9.5px] -left-[9.5px]",
+  "bottom-right": "-bottom-[9.5px] -right-[9.5px]",
 };
 
 export function DiamondCorner({ position, className }: DiamondCornerProps) {
   return (
-    <span
+    <div
       className={cn(
-        "absolute w-4 h-4 bg-p-grey rotate-45 pointer-events-none",
+        "absolute w-[19px] h-[19px] shrink-0 pointer-events-none z-20 flex items-center justify-center",
         positionMap[position],
         className
       )}
       aria-hidden="true"
-    />
+    >
+      <Image
+        src="/Vector.svg"
+        alt="Corner star vector"
+        width={19}
+        height={19}
+        className="w-full h-full object-contain"
+      />
+    </div>
   );
 }

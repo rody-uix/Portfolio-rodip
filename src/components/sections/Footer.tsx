@@ -46,29 +46,36 @@ export function Footer() {
           <path d="M0 10H20M10 0V20" stroke="white" strokeWidth="1" opacity="0.3" />
         </svg>
 
-        {/* Bottom Area: Social Links & Quote */}
-        <div className="relative z-10 flex flex-col items-center gap-8 mt-auto pt-6 text-center">
-          {/* Social links */}
-          <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-3 px-4">
+        {/* Top Area: Social Links (Center Aligned) */}
+        <div className="absolute top-[16px] sm:top-[30px] left-1/2 -translate-x-1/2 z-10 flex items-center justify-center max-w-[calc(100%-120px)]">
+          <div className="flex flex-nowrap items-center justify-center gap-x-1 sm:gap-x-1.5 lg:gap-x-2 max-w-full overflow-x-auto no-scrollbar">
             {socialLinks.map((link, i) => (
-              <span key={link.name} className="flex items-center">
+              <span key={link.name} className="inline-flex items-center gap-1 sm:gap-1.5 lg:gap-2 shrink-0 whitespace-nowrap">
                 <a
                   href={link.href}
-                  className="font-dm-sans text-[16px] sm:text-[18px] lg:text-[20px] leading-[30px] text-white hover:text-white/70 transition-colors px-2"
+                  className="font-dm-sans text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] leading-[30px] text-white hover:text-white/70 transition-colors whitespace-nowrap"
                 >
                   {link.name}
                 </a>
                 {i < socialLinks.length - 1 && (
-                  <span className="text-white/30 mx-1" aria-hidden="true">
-                    /
-                  </span>
+                  <div className="w-[14px] h-[21px] sm:w-[22px] sm:h-[33px] lg:w-[28px] lg:h-[42px] xl:w-[39.64px] xl:h-[60px] shrink-0 inline-flex items-center justify-center opacity-100 select-none">
+                    <Image
+                      src="/divider.svg"
+                      alt="Slant star divider"
+                      width={39.64}
+                      height={60}
+                      className="w-full h-full object-contain brightness-0 invert"
+                    />
+                  </div>
                 )}
               </span>
             ))}
           </div>
+        </div>
 
-          {/* Quote */}
-          <p className="font-adventor text-[14px] lg:text-[16px] leading-[25.6px] text-white/80 max-w-[800px] px-4">
+        {/* Bottom Area: Oscar Wilde Quote (Single line, centered) */}
+        <div className="relative z-10 mt-auto pt-8 w-full flex justify-center overflow-x-auto no-scrollbar">
+          <p className="font-adventor text-[13px] sm:text-[15px] lg:text-[16px] leading-[25.6px] text-white/80 text-center whitespace-nowrap">
             &ldquo;We are all in the gutter, but some of us are looking at the
             stars.&rdquo; — Oscar Wilde
           </p>

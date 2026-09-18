@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { DiamondCorner } from "@/components/ui/diamond-corner";
 import { CtaButton } from "@/components/ui/cta-button";
@@ -75,55 +76,42 @@ export function CaseStudyCard({
             </p>
           </div>
 
-          {/* Action Bar (Visit Website / View Work) */}
-          <div className="mt-6 lg:mt-8 flex items-center flex-wrap gap-y-2">
-            {/* Oval Accent Pill (40.15px x 40px spec) */}
-            <div className="w-[40px] h-[37px] shrink-0 border border-p-text flex items-center justify-center rounded-l-full bg-white">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 8H13M13 8L9 4M13 8L9 12"
-                  stroke="#515151"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+          {/* Action Bar (Side-by-Side CTAs & Red Stars) */}
+          <div className="mt-6 lg:mt-8 relative flex items-center gap-3 shrink-0">
+            {/* Visit Website Button Container with overflowing top-left Red Star 1 */}
+            <div className="relative shrink-0">
+              {/* Red Star 1 (Overflowing Top-Left Corner 40.16px x 40px at -20px top, -14.5px left) */}
+              <div className="absolute -top-[20px] -left-[14.5px] w-[40.16px] h-[40px] z-10 pointer-events-none">
+                <Image
+                  src="/start-1.svg"
+                  alt="Red Star Accent"
+                  width={40.16}
+                  height={40}
+                  className="w-full h-full object-contain"
                 />
-              </svg>
+              </div>
+
+              {/* Visit Website Button (138px x 37px Dark Spec) */}
+              <CtaButton
+                label="Visit Website"
+                href={visitUrl}
+                className="w-[138px] h-[37px] px-[16px] py-[8px] flex items-center justify-center bg-[#252525] border border-[#515151] font-dm-sans text-[15px] font-medium leading-[18px] tracking-[0.025em] uppercase text-[#DCDCDC] hover:bg-[#252525]/90 transition-colors whitespace-nowrap shrink-0 z-0"
+              />
             </div>
 
-            {/* Visit Website Button (138px x 37px spec) */}
-            <CtaButton
-              label="Visit Website"
-              href={visitUrl}
-              className="h-[37px] px-4 flex items-center bg-[#252525] border border-p-text font-sans text-[13px] sm:text-[15px] font-medium tracking-[0.025em] uppercase text-[#DCDCDC] hover:bg-[#252525]/90 transition-colors whitespace-nowrap"
-            />
-
-            {/* View Work Button (141px x 37px spec) */}
+            {/* View Work Button (141px x 37px White Spec with Red Star 2 on right) */}
             <CtaButton
               label="View Work"
               href={viewUrl}
-              className="h-[37px] pl-4 pr-3 flex items-center gap-2 bg-white border border-p-text font-sans text-[13px] sm:text-[15px] font-medium tracking-[0.025em] uppercase text-[#515151] hover:bg-neutral-50 transition-colors whitespace-nowrap"
+              className="w-[141px] h-[37px] pl-[16px] pr-[8px] py-[8px] flex items-center justify-between gap-[8px] bg-white border border-[#515151] font-dm-sans text-[15px] font-medium leading-[18px] tracking-[0.025em] uppercase text-[#515151] hover:bg-neutral-50 transition-colors whitespace-nowrap shrink-0"
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 10H15M15 10L10 5M15 10L10 15"
-                  stroke="#515151"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <Image
+                src="/start-1.svg"
+                alt="Red Star Icon"
+                width={20}
+                height={20}
+                className="w-[20px] h-[20px] shrink-0 object-contain"
+              />
             </CtaButton>
           </div>
         </div>

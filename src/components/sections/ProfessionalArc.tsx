@@ -34,7 +34,7 @@ const experiences = [
     startDate: "Mar 2025",
     endDate: "Jan 2026",
     location: "(Delhi/India)",
-    logoSrc: "/Group 5 (rasterized).svg",
+    logoSrc: "/imagesgroup.svg",
     companyColor: "text-p-main",
     bullets: defaultBullets,
   },
@@ -78,36 +78,39 @@ export function ProfessionalArc() {
   };
 
   return (
-    <section className="py-16 lg:py-20 relative overflow-visible">
+    <section className="py-16 lg:py-20 relative overflow-visible w-full">
       {/* Full-width divider */}
       <div className="w-full h-px bg-p-grey mb-16 lg:mb-20" />
+
+      {/* Left Edge Screen Chess Queen Illustration */}
+      <div className="hidden lg:block absolute left-0 xl:left-2 2xl:left-4 top-1/2 -translate-y-1/2 h-[320px] xl:h-[400px] w-auto pointer-events-none opacity-90 z-20">
+        <Image
+          src="/queen (rasterized).svg"
+          alt="Chess Queen"
+          width={150}
+          height={400}
+          className="h-full w-auto object-contain"
+          priority
+        />
+      </div>
+
+      {/* Right Edge Screen Chess Knight / Horse Illustration */}
+      <div className="hidden lg:block absolute right-0 xl:right-2 2xl:right-4 top-1/2 -translate-y-1/2 h-[320px] xl:h-[400px] w-auto pointer-events-none opacity-90 z-20">
+        <Image
+          src="/horse (rasterized).svg"
+          alt="Chess Knight"
+          width={150}
+          height={400}
+          className="h-full w-auto object-contain"
+          priority
+        />
+      </div>
 
       <div className="max-w-[1000px] mx-auto px-4 xl:px-0">
         <SectionHeader leftTitle="Professional" rightTitle="Arc" />
       </div>
 
       <div className="max-w-[1100px] mx-auto mt-12 lg:mt-16 px-4 xl:px-0 space-y-8 relative">
-        {/* Left Side Chess Queen Illustration */}
-        <div className="hidden 2xl:block absolute -left-36 top-1/2 -translate-y-1/2 w-[110px] pointer-events-none opacity-90 z-20">
-          <Image
-            src="/queen (rasterized).svg"
-            alt="Chess Queen"
-            width={110}
-            height={300}
-            className="w-full h-auto object-contain"
-          />
-        </div>
-
-        {/* Right Side Chess Knight / Horse Illustration */}
-        <div className="hidden 2xl:block absolute -right-36 top-1/2 -translate-y-1/2 w-[120px] pointer-events-none opacity-90 z-20">
-          <Image
-            src="/horse (rasterized).svg"
-            alt="Chess Knight"
-            width={120}
-            height={300}
-            className="w-full h-auto object-contain"
-          />
-        </div>
         {experiences.map((exp) => {
           const isExpanded = openId === exp.id;
 

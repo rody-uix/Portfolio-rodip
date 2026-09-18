@@ -32,6 +32,17 @@ export function CtaButton({
     </>
   );
 
+  // Frosted Glass style matching Navbar (bg-[#FAFAFFD9] backdrop-blur-md border border-p-grey)
+  const glassStyle =
+    "border border-p-grey bg-[#FAFAFFD9] backdrop-blur-md shadow-xs transition-all duration-300 hover:bg-white/95";
+
+  const hasBgClass = className.includes("bg-");
+  const finalClassName = cn(
+    "cursor-pointer select-none inline-flex items-center justify-center rounded-xs",
+    !hasBgClass && glassStyle,
+    className
+  );
+
   if (href) {
     return (
       <a
@@ -39,7 +50,7 @@ export function CtaButton({
         onClick={onClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={cn("cursor-pointer select-none", className)}
+        className={finalClassName}
         title={title}
       >
         {content}
@@ -53,7 +64,7 @@ export function CtaButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={cn("cursor-pointer select-none", className)}
+      className={finalClassName}
       title={title}
     >
       {content}

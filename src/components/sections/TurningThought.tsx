@@ -43,17 +43,26 @@ const services = [
 
 export function TurningThought() {
   return (
-    <section className="py-16 lg:py-20 relative overflow-visible">
-      {/* Full-width divider */}
-      <div className="w-full h-px bg-p-grey mb-16 lg:mb-20" />
-
-      <div className="max-w-[1000px] mx-auto px-4 xl:px-0">
+    <section className="pt-16 lg:pt-20 pb-16 lg:pb-20 relative overflow-visible">
+      <div className="max-w-[1000px] mx-auto px-4 xl:px-0 relative z-20">
         <SectionHeader leftTitle="Turning thought" rightTitle="Into existence" />
       </div>
 
       {/* Service grid */}
       <div className="max-w-[1200px] mx-auto mt-16 px-4 xl:px-0 relative">
-        <div className="relative">
+        {/* ASCII Skull Artwork (ascii-magic-1-Photoroom 1.svg) - Centered vertically on the right side of the main card grid */}
+        <div className="absolute right-[-100px] xl:right-[-180px] 2xl:right-[-240px] top-1/2 -translate-y-1/2 w-[350px] sm:w-[480px] md:w-[600px] lg:w-[702px] h-auto pointer-events-none opacity-100 z-10 hidden md:block">
+          <Image
+            src="/ascii-magic-1-Photoroom 1.svg"
+            alt="ASCII Skull Artwork"
+            width={702}
+            height={609.5}
+            className="w-full h-auto object-contain"
+            priority
+          />
+        </div>
+
+        <div className="relative z-20">
           <DiamondCorner position="top-left" />
           <DiamondCorner position="top-right" />
           <DiamondCorner position="bottom-left" />
