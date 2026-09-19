@@ -12,11 +12,16 @@ export const metadata: Metadata = {
     "Creative playground exploring interfaces, 3D motion, visual experiments, and generative web experiences.",
 };
 
+const prototypeEffects = [
+  { id: "particles", title: "Interactive Particle Field" },
+  { id: "shader-cube", title: "Interactive Shader Cube" },
+];
+
 export default function LabsPage() {
   return (
     <main className="bg-p-bg min-h-screen text-p-main overflow-x-clip">
       <Navbar />
-      <ScrollVelocityCarousel title="Prototype Labs" count={16} />
+      <ScrollVelocityCarousel title="Prototype Labs" count={prototypeEffects.length} />
       <LabSection />
       <Section2ParticlesWrapper />
       <ShaderCubeWrapper />

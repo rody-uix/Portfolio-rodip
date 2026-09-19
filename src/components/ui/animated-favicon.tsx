@@ -20,25 +20,24 @@ export function AnimatedFavicon() {
     const ctx = canvas.getContext("2d");
 
     let timer: NodeJS.Timeout | null = null;
+    let faviconLink = document.getElementById("animated-favicon-link") as HTMLLinkElement | null;
+
+    if (!faviconLink) {
+      faviconLink = document.createElement("link");
+      faviconLink.id = "animated-favicon-link";
+      faviconLink.rel = "icon";
+      faviconLink.type = "image/png";
+      document.head.appendChild(faviconLink);
+    }
 
     const startAnimation = () => {
       const update = () => {
-        if (!ctx) return;
+        if (!ctx || !faviconLink) return;
         const img = loadedImages[currentFrame];
         if (img) {
           ctx.clearRect(0, 0, 64, 64);
           ctx.drawImage(img, 0, 0, 64, 64);
-
-          // Remove all existing icon links in <head> to force Chrome/Edge tab refresh
-          const existing = document.querySelectorAll("link[rel*='icon']");
-          existing.forEach((el) => el.remove());
-
-          // Append fresh link tag with data URL
-          const link = document.createElement("link");
-          link.rel = "icon";
-          link.type = "image/png";
-          link.href = canvas.toDataURL("image/png");
-          document.head.appendChild(link);
+          faviconLink.href = canvas.toDataURL("image/png");
         }
 
         currentFrame = (currentFrame + 1) % loadedImages.length;
@@ -58,7 +57,6 @@ export function AnimatedFavicon() {
           startAnimation();
         }
       };
-      // In case image is already cached
       if (img.complete) {
         loadedImages[idx] = img;
         loadedCount++;
@@ -70,6 +68,9 @@ export function AnimatedFavicon() {
 
     return () => {
       if (timer) clearInterval(timer);
+      if (faviconLink && faviconLink.parentNode) {
+        faviconLink.parentNode.removeChild(faviconLink);
+      }
     };
   }, []);
 

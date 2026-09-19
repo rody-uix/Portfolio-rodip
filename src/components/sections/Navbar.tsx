@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Lab", href: "/labs" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
+  { label: "Work", href: "/case-studies" },
+  { label: "Lab", href: "/labs" },
 ];
 
 function NavLink({
@@ -57,12 +57,12 @@ export function Navbar() {
             const isActive =
               item.href === "/"
                 ? pathname === "/"
-                : item.href === "/labs"
-                ? pathname === "/labs"
                 : item.href === "/about"
                 ? pathname === "/about"
                 : item.href === "/case-studies"
-                ? pathname === "/case-studies"
+                ? pathname.startsWith("/case-studies")
+                : item.href === "/labs"
+                ? pathname === "/labs"
                 : false;
 
             return (

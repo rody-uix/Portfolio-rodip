@@ -414,9 +414,11 @@ export function LabCanvas({
         });
 
         if (renderer) {
+          renderer.forceContextLoss();
           renderer.dispose();
-          if (renderer.domElement && container.contains(renderer.domElement)) {
-            renderer.domElement.remove();
+          const el = renderer.domElement;
+          if (el && el.parentNode) {
+            el.parentNode.removeChild(el);
           }
           rendererRef.current = null;
         }

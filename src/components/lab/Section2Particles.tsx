@@ -217,9 +217,11 @@ export function Section2Particles({ height = "100%" }: Section2ParticlesProps) {
         materials.forEach((mat) => mat.dispose());
 
         if (renderer) {
+          renderer.forceContextLoss();
           renderer.dispose();
-          if (renderer.domElement && container.contains(renderer.domElement)) {
-            renderer.domElement.remove();
+          const el = renderer.domElement;
+          if (el && el.parentNode) {
+            el.parentNode.removeChild(el);
           }
           renderer = null;
         }

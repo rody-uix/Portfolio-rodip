@@ -8,11 +8,11 @@ const N = 16;
 const HALF = N / 2;
 const STEP_X = 95;
 const STEP_Y = -78;
-const CONVEYOR_SPEED = 2.2;
+const CONVEYOR_SPEED = 0.85;
 
-const SPRING_STIFFNESS = 100;
-const SPRING_DAMPING = 35;
-const SPRING_MASS = 0.5;
+const SPRING_STIFFNESS = 80;
+const SPRING_DAMPING = 25;
+const SPRING_MASS = 0.6;
 
 const DEFAULT_IMAGES = Array.from(
   { length: N },
@@ -291,7 +291,7 @@ export default function ScrollVelocityCarousel({
       <style jsx>{`
         .svc-section {
           position: relative;
-          height: 450vh;
+          height: 600vh;
           background: #000000;
           user-select: none;
         }

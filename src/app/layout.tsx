@@ -48,6 +48,7 @@ export const metadata: Metadata = {
 
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { AnimatedFavicon } from "@/components/ui/animated-favicon";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export default function RootLayout({
   children,
@@ -62,7 +63,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-p-bg">
         <AnimatedFavicon />
         <CustomCursor />
-        {children}
+        <ErrorBoundary>{children}</ErrorBoundary>
       </body>
     </html>
   );

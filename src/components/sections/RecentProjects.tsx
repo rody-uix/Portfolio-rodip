@@ -2,12 +2,13 @@
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/section-header";
 import { ProjectCard } from "@/components/ui/project-card";
+import { SkillsListWithCursorImage } from "@/components/ui/skills-list-with-cursor-image";
 
 const skills = [
-  "UX Research",
-  "Design System",
-  "Micro-interactions",
-  "Visual Direction",
+  { label: "UX Research", image: "/images/hover-1.svg" },
+  { label: "Design System", image: "/images/hover-2.svg" },
+  { label: "Micro-interactions", image: "/images/hover-3.svg" },
+  { label: "Visual Direction", image: "/images/hover-4.svg" },
 ];
 
 const projects = [
@@ -132,17 +133,12 @@ export function RecentProjects() {
               </div>
 
               {/* GROUP 2 — CAPABILITIES (Unified Group) */}
-              <div className="flex-1 min-w-0 space-y-1 pl-3 sm:pl-8 border-l border-p-grey/60">
-                {skills.map((skill) => (
-                  <div
-                    key={skill}
-                    className="py-1.5 sm:py-2 border-b border-p-grey/60 last:border-b-0"
-                  >
-                    <span className="font-sans text-[12px] sm:text-[14px] font-medium leading-[16px] sm:leading-[18px] text-p-main block">
-                      {skill}
-                    </span>
-                  </div>
-                ))}
+              <div className="flex-1 min-w-0 pl-3 sm:pl-8 border-l border-p-grey/60">
+                <SkillsListWithCursorImage
+                  items={skills}
+                  itemClassName="py-1.5 sm:py-2 last:border-b-0"
+                  textClassName="text-[12px] sm:text-[14px] leading-[16px] sm:leading-[18px]"
+                />
               </div>
             </div>
           </div>
@@ -181,19 +177,8 @@ export function RecentProjects() {
         {/* Right Sticky Sidebar */}
         <aside className="hidden xl:block w-[238px] shrink-0 sticky top-24 self-start z-30">
           <div className="pl-6 pt-16 lg:pt-20 pb-16 lg:pb-24">
-            {/* Skills list */}
-            <div className="space-y-1">
-              {skills.map((skill) => (
-                <div
-                  key={skill}
-                  className="py-2 border-b border-p-grey/60"
-                >
-                  <span className="font-sans text-[14px] font-medium leading-[18px] text-p-main">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
+            {/* Skills list with cursor image follow */}
+            <SkillsListWithCursorImage items={skills} />
 
             {/* God / Statue Illustration (Right Side - Edge to Edge from left border line to screen edge) */}
             <div className="mt-12 -ml-6 -mr-4 xl:-mr-12 opacity-95 pointer-events-none overflow-hidden">

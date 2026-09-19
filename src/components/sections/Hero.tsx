@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { CtaButton } from "@/components/ui/cta-button";
+import { ResumeModal } from "@/components/ResumeModal";
 
 const HeroWaveTerrain = dynamic(
   () => import("./HeroWaveTerrain"),
@@ -11,14 +12,8 @@ const HeroWaveTerrain = dynamic(
 );
 
 export function Hero() {
-  const [copied, setCopied] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [webglFailed, setWebglFailed] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hireridipuix@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <section className="relative overflow-hidden min-h-[900px] max-h-[1080px] lg:h-[1080px] bg-white">
@@ -96,14 +91,14 @@ export function Hero() {
             {/* CTA Button positioned over Group 5 image */}
             <div className="absolute top-[33.86%] left-1/2 -translate-x-1/2 z-10 w-[264px] max-w-[calc(100%-24px)]">
               <CtaButton
-                label={copied ? "Copied to Clipboard!" : "Summon the Compendium"}
-                onClick={handleCopyEmail}
-                title="Copy email: hireridipuix@gmail.com"
+                label="Summon the Compendium"
+                onClick={() => setIsResumeOpen(true)}
+                title="View & Download Rodip Chettri's Resume PDF"
                 className="cta-glass flex items-center justify-between gap-2 w-full h-[42px] px-4 py-2 font-adventor font-normal text-[16px] leading-[25.6px] tracking-normal text-[#515151] transition-all cursor-pointer opacity-100 rotate-0 shrink-0"
               >
                 <Image
-                  src="/copy.svg"
-                  alt="Copy icon"
+                  src="/file.svg"
+                  alt="Resume PDF icon"
                   width={12}
                   height={12}
                   className="w-[12px] h-[12px] shrink-0 opacity-100 rotate-0"
@@ -113,6 +108,12 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Resume Viewer Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+      />
 
       {/* Wider subtle border strip */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-[#B3B3B399]" />
