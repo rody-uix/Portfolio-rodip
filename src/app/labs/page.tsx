@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { Navbar } from "@/components/sections/Navbar";
 import ScrollVelocityCarousel from "@/components/sections/ScrollVelocityCarousel";
 import { LabSection } from "@/components/lab/LabSection";
+import { Section2ParticlesWrapper } from "@/components/lab/Section2ParticlesWrapper";
+import { ShaderCubeWrapper } from "@/components/lab/ShaderCubeWrapper";
 import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
@@ -16,6 +18,8 @@ export default function LabsPage() {
       <Navbar />
       <ScrollVelocityCarousel title="Prototype Labs" count={16} />
       <LabSection />
+      <Section2ParticlesWrapper />
+      <ShaderCubeWrapper />
       <Footer />
     </main>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const N = 16;
@@ -265,11 +266,12 @@ export default function ScrollVelocityCarousel({
                 }}
               >
                 <div className="svc-plane-inner">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     className="svc-plane-image"
                     src={src}
                     alt={item.title}
+                    fill
+                    unoptimized
                     draggable={false}
                   />
 

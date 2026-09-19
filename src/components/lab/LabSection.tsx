@@ -8,7 +8,19 @@ import { DiamondCorner } from "@/components/ui/diamond-corner";
 import { CtaButton } from "@/components/ui/cta-button";
 import { labProjects } from "./labData";
 import { LabProject } from "./labTypes";
-import { LabCanvas } from "./LabCanvas";
+import dynamic from "next/dynamic";
+
+const LabCanvas = dynamic(
+  () => import("./LabCanvas").then((m) => m.LabCanvas),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full min-h-[550px] lg:min-h-[680px] bg-neutral-900/5 flex items-center justify-center text-p-text font-adventor">
+        Loading 3D Card Stack...
+      </div>
+    ),
+  }
+);
 
 export function LabSection() {
   const [selectedProject, setSelectedProject] = useState<LabProject | null>(null);
@@ -24,10 +36,8 @@ export function LabSection() {
       <div className="max-w-[1320px] mx-auto px-4 xl:px-0">
         {/* Section Header */}
         <div className="max-w-[1000px] mx-auto">
-          <SectionHeader leftTitle="Product Design" rightTitle="Lab" />
-
           {/* Description */}
-          <p className="mt-8 max-w-[850px] mx-auto text-center font-adventor text-[15px] sm:text-[16px] leading-[25.6px] text-p-text">
+          <p className="max-w-[850px] mx-auto text-center font-adventor text-[15px] sm:text-[16px] leading-[25.6px] text-p-text">
             This lab represents experimental work, tactile prototypes, 3D spatial interactions,
             and selected product design explorations — built through curiosity and freedom to test ideas.
           </p>

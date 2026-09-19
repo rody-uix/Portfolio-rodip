@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { DiamondCorner } from "@/components/ui/diamond-corner";
@@ -73,10 +74,13 @@ export default async function CaseStudyDetailPage({
           <DiamondCorner position="bottom-right" />
 
           {study.heroImageUrl ? (
-            <img
+            <Image
               src={study.heroImageUrl}
               alt={study.title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1382px) 100vw, 1382px"
+              priority
             />
           ) : (
             <div className="w-full h-full bg-[#D9D9D9] flex flex-col items-center justify-center p-6 text-center relative">
@@ -174,10 +178,12 @@ export default async function CaseStudyDetailPage({
 
                   {/* Optional Mockup Image or Graphical Placeholder */}
                   {frame.imageUrl ? (
-                    <img
+                    <Image
                       src={frame.imageUrl}
                       alt={frame.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 931px) 100vw, 931px"
                     />
                   ) : (
                     <div className="my-auto flex flex-col items-center justify-center text-center py-12 relative z-10 px-4">

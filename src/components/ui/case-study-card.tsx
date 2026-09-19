@@ -46,10 +46,12 @@ export function CaseStudyCard({
         {/* Media / Image Box (654px x 351px spec) */}
         <div className="w-full lg:w-[654px] h-[220px] sm:h-[280px] lg:h-[351px] bg-[#D9D9D9] shrink-0 relative overflow-hidden rounded-xs">
           {imageUrl ? (
-            <img
+            <Image
               src={imageUrl}
               alt={title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 654px"
             />
           ) : (
             <div className="w-full h-full bg-[#D9D9D9] flex items-center justify-center">

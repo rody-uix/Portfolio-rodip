@@ -2,10 +2,17 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { CtaButton } from "@/components/ui/cta-button";
+
+const HeroWaveTerrain = dynamic(
+  () => import("./HeroWaveTerrain"),
+  { ssr: false }
+);
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
+  const [webglFailed, setWebglFailed] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("hireridipuix@gmail.com");
@@ -14,36 +21,36 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden">
-      {/* Perspective Floor Grid Background (Matching AboutQuoteFooter.tsx style) */}
-      <div
-        className="absolute bottom-0 left-[-50%] right-[-50%] h-[420px] sm:h-[500px] pointer-events-none opacity-40 z-0 border-t border-[#B3B3B399]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #B3B3B3 1px, transparent 1px), linear-gradient(to bottom, #B3B3B3 1px, transparent 1px)`,
-          backgroundSize: "60px 24px",
-          transform: "perspective(500px) rotateX(55deg)",
-          transformOrigin: "bottom center",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="relative overflow-hidden min-h-[900px] max-h-[1080px] lg:h-[1080px] bg-white">
+      {/* 3D Animated Infinite Grid Background */}
+      {!webglFailed && (
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <HeroWaveTerrain onError={() => setWebglFailed(true)} />
+        </div>
+      )}
 
-      {/* Hero Frame Overlay & Pillars (Frame 91 (rasterized).svg) */}
-      <div className="absolute inset-0 pointer-events-none opacity-100 z-[15]">
-        <img
-          src="/Frame 91 (rasterized).svg"
-          alt="Hero Pillars & Background Frame"
-          className="w-full h-full object-cover object-center pointer-events-none"
+      {/* Perspective Floor Grid Background (Fallback if 3D wave fails or degrades) */}
+      {webglFailed && (
+        <div
+          className="absolute bottom-0 left-[-50%] right-[-50%] h-[500px] lg:h-[650px] pointer-events-none opacity-40 z-0 border-t border-[#B3B3B399]"
+          style={{
+            backgroundImage: `linear-gradient(to right, #B3B3B3 1px, transparent 1px), linear-gradient(to bottom, #B3B3B3 1px, transparent 1px)`,
+            backgroundSize: "60px 24px",
+            transform: "perspective(500px) rotateX(55deg)",
+            transformOrigin: "bottom center",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
+          }}
+          aria-hidden="true"
         />
-      </div>
+      )}
 
-      {/* Main content */}
-      <div className="relative z-20 flex flex-col items-center pt-[80px] lg:pt-[120px] pb-[80px] lg:pb-[140px] px-4">
+      {/* Main content - Shifted upward by 25px */}
+      <div className="relative z-20 flex flex-col items-center pt-[45px] lg:pt-[65px] pb-[80px] lg:pb-[120px] px-4">
         {/* Name */}
-        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-4 lg:gap-8 flex-wrap">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-4 lg:gap-8 flex-nowrap">
           <span className="font-highcrest text-[48px] xs:text-[60px] sm:text-[80px] md:text-[120px] lg:text-[140px] xl:text-[166px] leading-none tracking-[-0.02em] text-p-main lowercase">
             rodip
           </span>
@@ -66,7 +73,7 @@ export function Hero() {
         </div>
 
         {/* Description */}
-        <p className="max-w-[903px] mt-8 lg:mt-12 text-center font-adventor text-[14px] md:text-[16px] leading-[25.6px] text-p-text px-4">
+        <p className="max-w-[903px] mt-6 lg:mt-8 text-center font-adventor text-[14px] md:text-[16px] leading-[25.6px] text-p-text px-4">
           A product designer crafting thoughtful digital experiences through
           strategy, research, and visual precision. Focused on solving usability
           challenges, simplifying interactions, and building products users
@@ -112,3 +119,5 @@ export function Hero() {
     </section>
   );
 }
+
+export default Hero;
