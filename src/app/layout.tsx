@@ -34,9 +34,20 @@ export const metadata: Metadata = {
   title: "Rodip Chettri — Product Designer",
   description:
     "A product designer crafting thoughtful digital experiences through strategy, research, and visual precision.",
+  icons: {
+    icon: [
+      {
+        url: "/icon.gif",
+        type: "image/gif",
+      },
+    ],
+    shortcut: "/icon.gif",
+    apple: "/icon.gif",
+  },
 };
 
 import { CustomCursor } from "@/components/ui/custom-cursor";
+import { AnimatedFavicon } from "@/components/ui/animated-favicon";
 
 export default function RootLayout({
   children,
@@ -49,6 +60,7 @@ export default function RootLayout({
       className={`${dmSans.variable} ${syne.variable} ${orbitron.variable} ${alexBrush.variable} antialiased`}
     >
       <body className="min-h-full flex flex-col bg-p-bg">
+        <AnimatedFavicon />
         <CustomCursor />
         {children}
       </body>
