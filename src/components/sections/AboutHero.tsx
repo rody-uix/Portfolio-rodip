@@ -169,13 +169,21 @@ export function AboutHero() {
       >
         {/* Title Heading */}
         <h1 className="font-dm-sans text-[36px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-semibold leading-[1.08] lg:leading-[75.6px] tracking-[-0.015em] text-p-main max-w-[683px]">
-          Designing products, building startups, and learning in public.
+          I wasn&apos;t trained to be a designer. I learned by building.
         </h1>
 
-        {/* Bio Text Paragraph */}
-        <p className="mt-8 sm:mt-[44px] font-adventor text-[15px] sm:text-[16px] leading-[25.6px] text-p-text max-w-[763px]">
-          Hi I&apos;m Rodip Chettri, originally from Darjeeling and now based in Delhi. I moved to Delhi in 2022 looking for better opportunities, faster growth, and, admittedly, much better Wi-Fi. I come from a science background and later earned a BCA, but most of what I know today came from building real projects, experimenting, and learning outside the classroom. I discovered design in Class 11, long before I knew it could be a career. I don&apos;t have a formal UX degree just years of learning through building, breaking, and improving products. The part of design I enjoy most isn&apos;t making things look good&mdash;it&apos;s understanding the problem beneath the surface. I like asking the right questions, challenging assumptions, and designing solutions that are practical, scalable, and user-centered.
-        </p>
+        {/* Bio Text Paragraphs */}
+        <div className="mt-8 sm:mt-[44px] font-adventor text-[15px] sm:text-[16px] leading-[25.6px] text-p-text max-w-[763px] space-y-5">
+          <p>
+            Hey, I&apos;m Rodip. I come from a science background and studied Computer Applications, but design found me much earlier. I started experimenting with interfaces back in Class 11&mdash;long before I knew it could become a career. With no formal UI/UX degree, I learned the way that felt most natural to me: by building, breaking, questioning, and rebuilding.
+          </p>
+          <p>
+            Today, I&apos;m a Product Designer with 4+ years of experience designing real products across SaaS, media, and digital platforms. I&apos;ve led 0&rarr;1 products, worked closely with users to understand the problems behind the requirements, and taken ideas from early research and messy whiteboards to systems that developers can actually build. My time at Entrepreneur Media and across different product teams taught me that good design isn&apos;t just about making screens look better&mdash;it&apos;s about making complex things easier to understand and use.
+          </p>
+          <p className="font-medium text-p-main">
+            That&apos;s what I bring to every product I work on: curiosity to find the real problem, discipline to simplify it, and enough technical understanding to see the idea through to reality.
+          </p>
+        </div>
       </motion.div>
 
       {/* Horizontal Divider Line */}

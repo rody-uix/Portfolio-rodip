@@ -20,10 +20,10 @@ export function CustomCursor() {
     // Enable custom cursor only on desktop devices with fine pointer
     const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
     if (!mediaQuery.matches) {
-      setIsDesktop(false);
+      requestAnimationFrame(() => setIsDesktop(false));
       return;
     }
-    setIsDesktop(true);
+    requestAnimationFrame(() => setIsDesktop(true));
 
     const handleMouseMove = (e: MouseEvent) => {
       smallX.set(e.clientX);

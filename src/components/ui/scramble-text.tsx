@@ -75,7 +75,7 @@ export function ScrambleText({
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      setDisplayText(text);
+      requestAnimationFrame(() => setDisplayText(text));
     }
   }, [isHovered, startScramble, text]);
 

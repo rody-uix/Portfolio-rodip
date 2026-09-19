@@ -21,14 +21,13 @@ export function Section3PhotoParticles() {
   useEffect(() => {
     if (!webglSupported) return;
 
-    let initFrameId: number;
     let animFrameId: number;
     let resizeObserver: ResizeObserver | null = null;
     let intersectionObserver: IntersectionObserver | null = null;
     let isDisposed = false;
     let cleanupHandler: (() => void) | null = null;
 
-    initFrameId = requestAnimationFrame(() => {
+    const initFrameId = requestAnimationFrame(() => {
       const container = containerRef.current;
       const canvas = canvasRef.current;
       if (!container || !canvas || isDisposed) return;

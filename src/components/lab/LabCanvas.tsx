@@ -40,6 +40,14 @@ export function LabCanvas({
   const cardsGroupRef = useRef<THREE.Group | null>(null);
   const cardMeshesRef = useRef<THREE.Mesh[]>([]);
   const hoveredCardIndexRef = useRef<number | null>(null);
+  const onHoverProjectRef = useRef(onHoverProject);
+  const onSelectProjectRef = useRef(onSelectProject);
+
+  useEffect(() => {
+    onHoverProjectRef.current = onHoverProject;
+    onSelectProjectRef.current = onSelectProject;
+  }, [onHoverProject, onSelectProject]);
+
   const selectedProjectRef = useRef<LabProject | null>(selectedProject);
 
   // Keep ref in sync
@@ -54,14 +62,13 @@ export function LabCanvas({
   }, [inViewport]);
 
   useEffect(() => {
-    let initFrameId: number;
     let animationFrameId: number;
     let resizeObserver: ResizeObserver | null = null;
     let isDisposed = false;
     let cleanupHandler: (() => void) | null = null;
 
     // Defer initialization by one requestAnimationFrame to ensure canvas & container DOM nodes are committed
-    initFrameId = requestAnimationFrame(() => {
+    const initFrameId = requestAnimationFrame(() => {
       const container = containerRef.current;
       const canvas = canvasRef.current;
       if (!container || !canvas || isDisposed) return;
@@ -219,7 +226,7 @@ export function LabCanvas({
             });
           }
           hoveredCardIndexRef.current = null;
-          onHoverProject(null);
+          onHoverProjectRef.current(null);
           document.body.style.cursor = "default";
         }
       };
@@ -234,12 +241,12 @@ export function LabCanvas({
           const u = hitMesh.userData as CardMeshUserData;
 
           if (selectedProjectRef.current?.id === u.project.id) {
-            onSelectProject(null);
+            onSelectProjectRef.current(null);
           } else {
-            onSelectProject(u.project);
+            onSelectProjectRef.current(u.project);
           }
         } else if (selectedProjectRef.current) {
-          onSelectProject(null);
+          onSelectProjectRef.current(null);
         }
       };
 
@@ -329,7 +336,7 @@ export function LabCanvas({
                 }
 
                 hoveredCardIndexRef.current = u.index;
-                onHoverProject(u.project);
+                onHoverProjectRef.current(u.project);
                 document.body.style.cursor = "pointer";
 
                 gsap.to(hitMesh.position, {
@@ -371,7 +378,7 @@ export function LabCanvas({
                 });
               }
               hoveredCardIndexRef.current = null;
-              onHoverProject(null);
+              onHoverProjectRef.current(null);
               document.body.style.cursor = "default";
             }
           }
@@ -425,6 +432,7 @@ export function LabCanvas({
       cancelAnimationFrame(initFrameId);
       if (cleanupHandler) cleanupHandler();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projects]);
 
   // GSAP Selection State Animation Effect

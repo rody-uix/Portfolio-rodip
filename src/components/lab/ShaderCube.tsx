@@ -47,13 +47,12 @@ export default function ShaderCube({ height = "100%" }: ShaderCubeProps) {
   }, [inViewport]);
 
   useEffect(() => {
-    let initFrameId: number;
     let animationFrameId: number;
     let resizeObserver: ResizeObserver | null = null;
     let isDisposed = false;
     let cleanupHandler: (() => void) | null = null;
 
-    initFrameId = requestAnimationFrame(() => {
+    const initFrameId = requestAnimationFrame(() => {
       const container = containerRef.current;
       if (!container || isDisposed) return;
 

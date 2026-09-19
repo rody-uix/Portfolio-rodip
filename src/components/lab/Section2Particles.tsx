@@ -19,13 +19,12 @@ export function Section2Particles({ height = "100%" }: Section2ParticlesProps) {
   }, [inViewport]);
 
   useEffect(() => {
-    let initFrameId: number;
     let animFrameId: number;
     let resizeObserver: ResizeObserver | null = null;
     let isDisposed = false;
     let cleanupHandler: (() => void) | null = null;
 
-    initFrameId = requestAnimationFrame(() => {
+    const initFrameId = requestAnimationFrame(() => {
       const container = containerRef.current;
       const canvas = canvasRef.current;
       if (!container || !canvas || isDisposed) return;
