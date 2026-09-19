@@ -5,7 +5,7 @@ const row1Tools: ToolCardProps[] = [
   { name: "Figma", level: "Expert", iconSrc: "/figma.svg" },
   { name: "FigJam", level: "Expert", iconSrc: "/figjam.svg" },
   { name: "Adobe Photoshop", level: "Advanced", iconSrc: "/photoshop.svg" },
-  { name: "Adobe Illustrator", level: "Advanced", iconSrc: "/interfacedesing.svg" },
+  { name: "Adobe Illustrator", level: "Advanced", iconSrc: "/illustrator.svg" },
   { name: "Spline", level: "Intermediate", iconSrc: "/spline.svg" },
   { name: "Balsamiq", level: "Advanced", iconSrc: "/blasamiq.svg" },
 ];
@@ -14,7 +14,7 @@ const row2Tools: ToolCardProps[] = [
   { name: "Miro", level: "Advanced", iconSrc: "/miro.svg" },
   { name: "Jira", level: "Advanced", iconSrc: "/jira.svg" },
   { name: "Notion", level: "Advanced", iconSrc: "/notion.svg" },
-  { name: "Zeplin", level: "Intermediate", iconSrc: "/clarity.svg" },
+  { name: "Zeplin", level: "Intermediate", iconSrc: "/zeplin.svg" },
 ];
 
 const row3Tools: ToolCardProps[] = [
@@ -27,7 +27,7 @@ const row3Tools: ToolCardProps[] = [
 const row4Tools: ToolCardProps[] = [
   { name: "Framer", level: "Advanced", iconSrc: "/framer.svg" },
   { name: "Webflow", level: "Advanced", iconSrc: "/wenflow.svg" },
-  { name: "Classic Code", level: "Beginner", iconSrc: "/github.svg" },
+  { name: "Claude Code", level: "Beginner", iconSrc: "/Calude.svg" },
   { name: "GitHub Copilot", level: "Beginner", iconSrc: "/github.svg" },
   { name: "Antigravity", level: "Beginner", iconSrc: "/antigravity.svg" },
 ];
@@ -95,3 +95,5 @@ export function AboutToolsStack() {
     </section>
   );
 }
+
+

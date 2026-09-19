@@ -6,13 +6,13 @@ import { motion, useSpring, useMotionValue } from "framer-motion";
 export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   // Motion values for direct mouse tracking (small ball)
   const smallX = useMotionValue(-100);
   const smallY = useMotionValue(-100);
 
-  // Spring physics for smooth trailing motion (big ball) matching CodePen easing
+  // Spring physics for smooth trailing motion (big ball) matching easing
   const bigX = useSpring(smallX, { damping: 28, stiffness: 220, mass: 0.5 });
   const bigY = useSpring(smallY, { damping: 28, stiffness: 220, mass: 0.5 });
 
@@ -20,15 +20,19 @@ export function CustomCursor() {
     // Enable custom cursor only on desktop devices with fine pointer
     const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
     if (!mediaQuery.matches) {
-      setIsTouchDevice(true);
+      requestAnimationFrame(() => setIsDesktop(false));
       return;
     }
-    setIsTouchDevice(false);
+    requestAnimationFrame(() => setIsDesktop(true));
 
     const handleMouseMove = (e: MouseEvent) => {
       smallX.set(e.clientX);
       smallY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
+    };
+
+    const handleMouseEnter = () => {
+      setIsVisible(true);
     };
 
     const handleMouseLeave = () => {
@@ -52,23 +56,25 @@ export function CustomCursor() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseenter", handleMouseEnter);
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseover", handleMouseOver);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseenter", handleMouseEnter);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [smallX, smallY, isVisible]);
+  }, [smallX, smallY]);
 
-  if (isTouchDevice || !isVisible) return null;
+  if (!isDesktop || !isVisible) return null;
 
   return (
     <>
-      {/* Big Cursor Ball (30px SVG, mix-blend-mode: difference, smooth 4x scale expansion on hover) */}
+      {/* Big Cursor Ball (30px SVG, mix-blend-mode: difference, smooth scale expansion on hover) */}
       <motion.div
-        className="fixed top-0 left-0 w-[30px] h-[30px] pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-[30px] h-[30px] pointer-events-none z-[99999]"
         style={{
           x: bigX,
           y: bigY,
@@ -77,20 +83,22 @@ export function CustomCursor() {
           mixBlendMode: "difference",
         }}
         animate={{
-          scale: isHovered ? 4 : 1,
+          scale: isHovered ? 3.5 : 1,
+          opacity: isVisible ? 1 : 0,
         }}
         transition={{
-          scale: { duration: 0.3, ease: "easeOut" },
+          scale: { duration: 0.25, ease: "easeOut" },
+          opacity: { duration: 0.15 },
         }}
       >
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <circle cx="15" cy="15" r="12" fill="#FFFFFF" />
+          <circle cx="15" cy="15" r="13" fill="#FFFFFF" />
         </svg>
       </motion.div>
 
       {/* Small Cursor Ball (10px SVG, snappy direct follow) */}
       <motion.div
-        className="fixed top-0 left-0 w-[10px] h-[10px] pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-[10px] h-[10px] pointer-events-none z-[99999]"
         style={{
           x: smallX,
           y: smallY,
@@ -98,11 +106,20 @@ export function CustomCursor() {
           translateY: "-50%",
           mixBlendMode: "difference",
         }}
+        animate={{
+          scale: isHovered ? 0 : 1,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{
+          scale: { duration: 0.15 },
+          opacity: { duration: 0.15 },
+        }}
       >
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <circle cx="5" cy="5" r="4" fill="#FFFFFF" />
+          <circle cx="5" cy="5" r="4.5" fill="#FFFFFF" />
         </svg>
       </motion.div>
     </>
   );
 }
+
